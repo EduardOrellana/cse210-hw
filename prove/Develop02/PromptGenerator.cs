@@ -13,7 +13,9 @@ public class PromptGenerator {
         "What did you eat today?",
         "What did you learned today?",
         "What is something interisting about you?",
-        "Where did you take you lunch?"
+        "Where did you take you lunch?",
+        "What do you want to do tomorrow?",
+        "What was your last movie that you watched in the cinema?"
     };
     Random _randomPrompt = new Random();
 

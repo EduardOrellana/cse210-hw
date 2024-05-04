@@ -26,13 +26,13 @@ class Program
         while (choice != 5)
         {
             Console.WriteLine("Please select one of the following choices: ");
-            Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\n\n");
+            Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\n6. Edit\n");
             string stringChoice = Console.ReadLine();
             validatorOfTheNumberFromUser = int.TryParse(stringChoice, out number);
 
             if (stringChoice == "" || (!validatorOfTheNumberFromUser)) //We are ensuring that the user only will put one number.
             {
-                choice = 6;
+                choice = 7;
             }
             else {
                 choice = int.Parse(stringChoice);
@@ -100,7 +100,14 @@ class Program
                     }
 
                     break;
-                case >=5:
+                case 5:
+                    break;
+
+                case 6:
+                    theJournal.EditJourney();
+                    break;
+                
+                case >6:
                     break;
             }
             

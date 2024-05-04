@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 
 public class Journal {
@@ -66,5 +67,33 @@ public class Journal {
         {
             Console.WriteLine("\nThe file is empty\n");
         }
+    }
+
+    public void EditJourney()
+    {
+        //Print the entries with one index.
+        for (int i = 0; i <= (_entries.Count - 1); i++)
+        {
+            Console.WriteLine($"Entry: {i + 1}");
+            Console.WriteLine(_entries[i]._date);
+            Console.WriteLine(_entries[i]._promptText);
+            Console.WriteLine(_entries[i]._entryText);
+            Console.WriteLine();
+        }
+
+        Console.WriteLine("\nWhat Entry you want to edit?\n");
+        int entryIndexToEdit = int.Parse(Console.ReadLine());
+        entryIndexToEdit -= 1;//To be exact and in line with the EntryDictionary
+
+        if (entryIndexToEdit >= 0 && entryIndexToEdit < _entries.Count)
+        {
+            Console.WriteLine("What is the new Responses about this prompt?");
+            string newAnswer = Console.ReadLine();
+
+            _entries[entryIndexToEdit]._entryText = newAnswer;
+            Console.WriteLine("\nDone!\n");
+        }
+    
+
     }
 }
