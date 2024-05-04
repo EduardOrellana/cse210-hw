@@ -93,7 +93,9 @@ public class Journal {
             _entries[entryIndexToEdit]._entryText = newAnswer;
             Console.WriteLine("\nDone!\n");
         }
-    
-
+        else
+        {
+            Console.WriteLine("!\nThis entry doesn't exits!!\n");
+        }
     }
 }
