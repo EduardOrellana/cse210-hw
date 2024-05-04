@@ -6,8 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.BackgroundColor = ConsoleColor.DarkYellow; //just to be funny :)
+        Console.ForegroundColor = ConsoleColor.Blue; //just to be funny :)
         Console.WriteLine("Hello to your Journey\n");
 
         //main variables
