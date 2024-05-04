@@ -115,5 +115,6 @@ class Program
             
         }
         Console.WriteLine("\nThanks for your time :)");
+        Console.ResetColor();
     }
 }
