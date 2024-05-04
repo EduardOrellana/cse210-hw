@@ -104,6 +104,7 @@ class Program
                     break;
 
                 case 6:
+                    //To edit the responses.
                     theJournal.EditJourney();
                     break;
                 
