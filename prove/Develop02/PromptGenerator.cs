@@ -15,7 +15,9 @@ public class PromptGenerator {
         "What is something interisting about you?",
         "Where did you take you lunch?",
         "What do you want to do tomorrow?",
-        "What was your last movie that you watched in the cinema?"
+        "What was your last movie that you watched in the cinema?",
+        "Do you have pets? if you have please write about your pets",
+        "What is your profession?"
     };
     Random _randomPrompt = new Random();
 
