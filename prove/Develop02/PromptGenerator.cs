@@ -4,7 +4,7 @@ public class PromptGenerator {
 
     public List<string> _prompts = new List<string>()
     {
-        "What is the most imprtant thing you have done today?",
+        "What is the most important thing you have done today?",
         "What was the best part of my day?",
         "How did I see the hand of the Lord in my life today?",
         "What was the strongest emotion I felt today?",
@@ -17,7 +17,8 @@ public class PromptGenerator {
         "What do you want to do tomorrow?",
         "What was your last movie that you watched in the cinema?",
         "Do you have pets? if you have please write about your pets",
-        "What is your profession?"
+        "What is your profession?",
+        "What is your favorite sport?"
     };
     Random _randomPrompt = new Random();
 
