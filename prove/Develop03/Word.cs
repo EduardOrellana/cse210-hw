@@ -30,8 +30,6 @@ public class Word {
     {
         _text = _originalText;
         _isHidden = false;
-
-        Console.WriteLine(_text);
     }
 
     public bool isHidden()
