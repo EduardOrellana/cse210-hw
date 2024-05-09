@@ -1,6 +1,5 @@
 public class Word {
     //This class will keep the words of the scriptures
-
     private string _text;
     private bool _isHidden;
 
