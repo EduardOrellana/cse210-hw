@@ -1,19 +1,30 @@
+using System;
+
 public class Scripture {
 
     //Attributes 
 
     private Reference _reference;
-    private List<Word> _words;
+    private List<Word> _words = new List<Word>();
+    private string _quote;
 
     public Scripture(Reference Reference, string text)
     {
         _reference = Reference;
+        _quote = text;
         
-        
+        string[] linesInText = text.Split(new string[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
 
+        foreach (string line in linesInText)
+        {
+            string[] wordsInLine = line.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
 
-
-
+            foreach (string wordText in wordsInLine)
+            {
+                Word word = new Word(wordText);
+                _words.Add(word);
+            }
+        }
         
     }
 
@@ -30,9 +41,11 @@ public class Scripture {
 
     }
 
-    public string GetDisplayText(string a) //delete the attribute.
+    public string GetDisplayText() //delete the attribute.
     {
-        return a;
+        string textDisplayed = $"{_reference.GetDisplayText()} : {_quote}";
+
+        return textDisplayed;
     }
 
 
