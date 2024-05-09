@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using System.Threading.Tasks.Dataflow;
 
 public class Word {
     //This class will keep the words of the scriptures
@@ -29,6 +30,8 @@ public class Word {
     {
         _text = _originalText;
         _isHidden = false;
+
+        Console.WriteLine(_text);
     }
 
     public bool isHidden()
