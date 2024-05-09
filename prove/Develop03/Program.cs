@@ -22,27 +22,28 @@ class Program
 
         Scripture scripture= new Scripture(reference, scriptureText);
 
-        while (toQuite != "quite")
+        do
         {
+            Console.WriteLine();
             Console.WriteLine(scripture.GetDisplayText());
             
-            Console.WriteLine("\nPress enter to continue or type 'quite' to finish\n");
+            Console.WriteLine("\nPress enter to continue or type 'quite' to finish");
 
             toQuite = Console.ReadLine();
+            Console.Clear();
 
-            if (toQuite == "")
+            if (toQuite != "quite")
             {
-                scripture.HideRandomWords(3);
-                Console.ReadLine();
-                Console.Clear();
+                scripture.HideRandomWords(1);
             }
 
             if (scripture.IsCompletelyHidden())
             {
+                Console.WriteLine("try to memorize!");
                 break;
             }
     
-        }
+        }while (toQuite != "quite");
 
     }
 }

@@ -31,19 +31,29 @@ public class Scripture {
 
         Random _randomWord = new Random(); //to get a random word.
 
-        int _randomWordIndex = 0;
+        int _randomWordIndex;
         int _totalWords = _words.Count;
 
-        for (int i = 1; i <= numberToHide; i ++)
+        for (int i = 1; i <= numberToHide; i++)
         {
+            _randomWordIndex = _randomWord.Next(0, _totalWords);
             
-            if (!_words[_randomWordIndex].isHidden())
+            if (_words[_randomWordIndex].isHidden() != true)
             {
-                _randomWordIndex = _randomWord.Next(0, _totalWords);
-
                 _words[_randomWordIndex].Hide(); //I can use the methods no matter if the class is an list, regarding the index of the random the index will localize some word and then with the method of hide from the class word, we are going to hide the word.
             }
-
+            else
+            {
+                foreach (Word word in _words)
+                {
+                    if (word.isHidden() != true)
+                    {
+                        word.Hide();
+                        break;
+                    }
+                }
+            }
+            
         }
 
     }
