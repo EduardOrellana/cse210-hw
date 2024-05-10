@@ -1,17 +1,15 @@
-using System;
-
 public class Scripture {
 
     //Attributes 
 
     private Reference _reference;
     private List<Word> _words = new List<Word>();
-    private string _quote;
+    
+    // private string _quote; I'll try to work only with the attributes that the instructions are telling me.
 
     public Scripture(Reference Reference, string text)
     {
         _reference = Reference;
-        _quote = text;
         
         string[] linesInText = text.Split(new string[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
 
@@ -24,33 +22,76 @@ public class Scripture {
                 Word word = new Word(wordText);
                 _words.Add(word);
             }
-        }
-        
+        }  
     }
-
-    // private void SplitIntoWords(string scriptureText){
-
-    //     string[] line = scriptureText.Split("");
-
-
-
-    // }
 
     public void HideRandomWords(int numberToHide)
     {
+        //This method will hide some of randomWords.
+
+        Random _randomWord = new Random(); //to get a random word.
+
+        int _randomWordIndex;
+        int _totalWords = _words.Count;
+
+        for (int i = 1; i <= numberToHide; i++)
+        {
+            _randomWordIndex = _randomWord.Next(0, _totalWords);
+            
+            if (_words[_randomWordIndex].isHidden() != true)
+            {
+                _words[_randomWordIndex].Hide(); //I can use the methods no matter if the class is an list, regarding the index of the random the index will localize some word and then with the method of hide from the class word, we are going to hide the word.
+            }
+            else
+            {
+                foreach (Word word in _words)
+                {
+                    if (word.isHidden() != true)
+                    {
+                        word.Hide();
+                        break;
+                    }
+                }
+            }
+            
+        }
 
     }
 
-    public string GetDisplayText() //delete the attribute.
+    public string GetDisplayText()
     {
-        string textDisplayed = $"{_reference.GetDisplayText()} : {_quote}";
+        
+        string textDisplayed = $"{_reference.GetDisplayText()}";
 
-        return textDisplayed;
+        foreach (Word word in _words)
+        {
+            textDisplayed += word.GetDisplayText() + " ";
+        }
+
+        return textDisplayed.Trim();
     }
 
 
-    public bool IsCompletelyHidden(bool a)//Delete the attribute
+    public bool IsCompletelyHidden()
     {
-        return a;
+        //Will start reset the words
+        bool _completeHidden = false;
+        int _count = 0;
+        int _totalWords = _words.Count;
+
+        foreach (Word wordi in _words)
+        {
+            if (wordi.isHidden())
+            {
+                _count += 1;
+            }
+        }
+
+        if (_count == _totalWords)
+        {
+            _completeHidden = true;
+        }
+        
+        return _completeHidden;
     }
 }

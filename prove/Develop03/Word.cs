@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using System.Threading.Tasks.Dataflow;
 
 public class Word {
     //This class will keep the words of the scriptures
@@ -16,13 +17,16 @@ public class Word {
 
     public void Hide()
     {
-        Regex wordRegex = new Regex(@"\b\w+\b");
+        if (_isHidden != true)
+        {
+            Regex wordRegex = new Regex(@"\b\w+\b");
 
-        string newWord = wordRegex.Replace(_text, match => new string('_', match.Length));
+            string newWord = wordRegex.Replace(_text, match => new string('_', match.Length));
 
-        _text = newWord;
+            _text = newWord;
 
-        _isHidden = true;
+            _isHidden = true;
+        }
     }
 
     public void Show()

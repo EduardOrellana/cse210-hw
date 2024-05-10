@@ -30,11 +30,11 @@ public class Reference {
         
         if (_endVerse > 0)
         {
-            textDisplayed = $"{_book} {_chapter}:{_verse}";
+            textDisplayed = $"{_book} {_chapter}:{_verse} ";
         }
         else
         {
-            textDisplayed = $"{_book} {_chapter}:{_verse}";
+            textDisplayed = $"{_book} {_chapter}:{_verse} ";
         }
 
         return textDisplayed;
