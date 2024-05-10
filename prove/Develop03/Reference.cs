@@ -12,7 +12,6 @@ public class Reference {
         _book = book;
         _chapter = chapter;
         _verse = verse;
-        _endVerse = 0;
     }
 
     public Reference(string book, int chapter, int startVerse, int endVerse)
@@ -30,7 +29,7 @@ public class Reference {
         
         if (_endVerse > 0)
         {
-            textDisplayed = $"{_book} {_chapter}:{_verse} ";
+            textDisplayed = $"{_book} {_chapter}:{_verse}-{_endVerse}";
         }
         else
         {

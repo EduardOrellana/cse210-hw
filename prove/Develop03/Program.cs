@@ -20,7 +20,7 @@ class Program
 
         In all thy ways acknowledge him, and he shall direct thy paths.";
 
-        Scripture scripture= new Scripture(reference, scriptureText);
+        Scripture scripture = new Scripture(reference, scriptureText);
 
         do
         {
