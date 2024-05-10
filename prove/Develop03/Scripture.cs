@@ -44,7 +44,7 @@ public class Scripture {
             }
             else
             {
-                foreach (Word word in _words)
+                foreach (Word word in _words) //here I'm ensuring that the code will hide another word.
                 {
                     if (word.isHidden() != true)
                     {
