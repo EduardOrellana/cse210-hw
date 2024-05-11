@@ -23,7 +23,7 @@ class Program
 
         while (choice != 5)
         {
-            Console.WriteLine("\nWelcome! to this program, you can choose this options: \n1)Random Scripture.\n2)Add one Scripture.\n3)View Scriptures.\n4)Select One Scripture.\n5).\n");
+            Console.WriteLine("\nWelcome! to this program, you can choose this options: \n1)Random Scripture.\n2)Add one Scripture.\n3)View Scriptures.\n4)Select One Scripture.\n5)Exit\n");
 
             string stringChoice = Console.ReadLine();
             bool validator = int.TryParse(stringChoice, out number);
@@ -168,6 +168,5 @@ class Program
             }
         }
     Console.ResetColor(); //return the normal color.
-
     }
 }
