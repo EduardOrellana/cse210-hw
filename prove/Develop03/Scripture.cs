@@ -11,11 +11,11 @@ public class Scripture {
     {
         _reference = Reference;
         
-        string[] linesInText = text.Split(new string[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries);
+        string[] linesInText = text.Split(new string[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries); //We are ensuring the paragrahp.
 
         foreach (string line in linesInText)
         {
-            string[] wordsInLine = line.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+            string[] wordsInLine = line.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries); //here we are extracting the line.
 
             foreach (string wordText in wordsInLine)
             {
@@ -79,9 +79,9 @@ public class Scripture {
         int _count = 0;
         int _totalWords = _words.Count;
 
-        foreach (Word wordi in _words)
+        foreach (Word word in _words)
         {
-            if (wordi.isHidden())
+            if (word.isHidden())
             {
                 _count += 1;
             }
