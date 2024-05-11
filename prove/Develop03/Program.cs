@@ -19,10 +19,11 @@ class Program
         ScriptureBox boxScripture = new ScriptureBox();
 
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Blue; //just to be funny :)
 
-        while (choice != 4)
+        while (choice != 5)
         {
-            Console.WriteLine("\nWelcome! to this program, you can choose this options: \n1)Random Scripture.\n2)Add one Scripture.\n3)View Scriptures.\n4)Exit.\n");
+            Console.WriteLine("\nWelcome! to this program, you can choose this options: \n1)Random Scripture.\n2)Add one Scripture.\n3)View Scriptures.\n4)Select One Scripture.\n5).\n");
 
             string stringChoice = Console.ReadLine();
             bool validator = int.TryParse(stringChoice, out number);
@@ -34,13 +35,13 @@ class Program
             else {
                 choice = int.Parse(stringChoice);
             }
-            
+            Console.Clear();
             switch (choice)
             {
                 case 1:
 
                     //Random Scripture will be printed.
-                    Scripture scripture = new ScriptureBox()._randomScripture();
+                    Scripture scripture = boxScripture.randomScripture();
 
                     do
                     {
@@ -63,10 +64,10 @@ class Program
                             break;
                         }
             
-                }while (toQuite != "quite");
+                    }while (toQuite != "quite");
 
-                    choice = 0;
-                    break;
+                        choice = 0;
+                        break;
                 
                 case 2:
                     //Adding a new Scripture
@@ -107,15 +108,66 @@ class Program
 
                         boxScripture.AddScripture(myScripture);//calling a new ScriptureBox and add the new Scritpure.
                     }
+                    break; //break of the case 2
+
+                case 3:
+                    boxScripture.printScriptures();
                     break;
 
-                    case 3:
+                case 4:
+                    //this case will present one specific scripture.
+                    //Local Variable.
+
+                    int scriptureSelectedIndex;
+
+                    Console.WriteLine("What Scripture do you want to memorize?");
+
+                    string strincScriptureSelected = Console.ReadLine();
+
+                    bool validatorScriptureSelected = int.TryParse(strincScriptureSelected, out number);
+
+                    if (strincScriptureSelected == "" || (!validatorScriptureSelected)) //We are ensuring that the user only will put one number.
                     {
-                        boxScripture.printScriptures();
+                        scriptureSelectedIndex = 0;
                     }
+                    else {
+                        scriptureSelectedIndex = int.Parse(strincScriptureSelected);
+                    }
+                    
+                    //call the class Scritpure with the scriptureSelected variable the number of the index that the User is providing us.
+                    Scripture scriptureSelected = boxScripture.scriptureSelected(scriptureSelectedIndex - 1);//-1 beacuse then index always start with 0
+
+                    do
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine(scriptureSelected.GetDisplayText());
+                        
+                        Console.WriteLine("\nPress enter to continue or type 'quite' to finish");
+
+                        toQuite = Console.ReadLine();
+                        Console.Clear();
+
+                        if (toQuite != "quite")
+                        {
+                            scriptureSelected.HideRandomWords(1);
+                        }
+
+                        if (scriptureSelected.IsCompletelyHidden())
+                        {
+                            Console.WriteLine("try to memorize!");
+                            break;
+                        }
+            
+                    }while (toQuite != "quite");
+
+                        choice = 0;
+                    break; //break of the case 4
+
+                case 5:
                     break;
             }
         }
+    Console.ResetColor(); //return the normal color.
 
     }
 }

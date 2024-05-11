@@ -25,7 +25,7 @@ public class ScriptureBox
     };
 
 
-    public Scripture _randomScripture()
+    public Scripture randomScripture()
     {
         //This Function will be return a random Scripture.
         
@@ -34,6 +34,14 @@ public class ScriptureBox
         int _randomIndex = _randomScripture.Next(1, _scriptures.Count);
 
         Scripture _scriptureReturn = _scriptures[_randomIndex];
+
+        return _scriptureReturn;
+    }
+
+    public Scripture scriptureSelected(int index)
+    {
+
+        Scripture _scriptureReturn = _scriptures[index];
 
         return _scriptureReturn;
     }
@@ -57,15 +65,12 @@ public class ScriptureBox
             Console.WriteLine();
             count++;
         }
-        
-        count = 1;
+    
         Console.WriteLine("New Scriptures Added:\n");
         foreach(Scripture item in _newScripturesAdded) //I've learned that KeyValuePair we can pass with the all dictionary
         {
-            Console.WriteLine($"Scripture {count}\n");
             Console.WriteLine(item.GetDisplayText());
             Console.WriteLine();
-            count++;
         }
     }
 }
