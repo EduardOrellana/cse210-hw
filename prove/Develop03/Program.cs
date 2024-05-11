@@ -16,6 +16,9 @@ class Program
         string toQuite = "";
         int choice = 0;
         int number;
+        ScriptureBox boxScripture = new ScriptureBox();
+
+        Console.Clear();
 
         while (choice != 4)
         {
@@ -67,8 +70,6 @@ class Program
                 
                 case 2:
                     //Adding a new Scripture
-                    ScriptureBox scriptureBox = new ScriptureBox(); //to call the ScriptureBox.
-
                     Console.WriteLine("\nBook: example: 1 Nephi");
                     string newBook = Console.ReadLine(); //The book we are adding into the ScriptureBox.
 
@@ -91,7 +92,9 @@ class Program
                         //Adding the scripture.
                         Scripture myScripture = new Scripture(new Reference(newBook, chapterNewBook, verseNewBook, lastVerseNewBook), newScriptureText);
 
-                        scriptureBox.AddScripture(myScripture);//calling a new ScriptureBox and add the new Scritpure.
+                        Console.WriteLine($"\nThis is the Scripture: \n{myScripture.GetDisplayText()}");
+
+                        boxScripture.AddScripture(myScripture);//calling a new ScriptureBox and add the new Scritpure.
 
                     }
                     else
@@ -102,13 +105,13 @@ class Program
                         //Adding the scripture.
                         Scripture myScripture = new Scripture(new Reference(newBook, chapterNewBook, verseNewBook), newScriptureText);
 
-                        scriptureBox.AddScripture(myScripture);//calling a new ScriptureBox and add the new Scritpure.
+                        boxScripture.AddScripture(myScripture);//calling a new ScriptureBox and add the new Scritpure.
                     }
                     break;
 
                     case 3:
                     {
-                        new ScriptureBox().printScriptures();
+                        boxScripture.printScriptures();
                     }
                     break;
             }
