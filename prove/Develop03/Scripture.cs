@@ -57,7 +57,7 @@ public class Scripture {
         }
 
     }
-
+    
     public string GetDisplayText()
     {
         
