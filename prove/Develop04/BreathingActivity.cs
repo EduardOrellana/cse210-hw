@@ -22,7 +22,7 @@ public class BreathingActivity : Activity {
         while (DateTime.Now < endTiming)
         {
             Console.Write("Breathe in...");
-            for (int i = 6; i > 0; i--)
+            for (int i = 8; i > 0; i--)
             {
                 Console.Write(i);
                 Thread.Sleep(1000);
@@ -32,7 +32,27 @@ public class BreathingActivity : Activity {
             Console.WriteLine();
             Console.Write("Now breathe out...");
 
-            for (int i = 6; i > 0; i--)
+            for (int i = 8; i > 0; i--)
+            {
+                Console.Write(i);
+                Thread.Sleep(1000);
+                Console.Write("\b \b");
+            };
+
+            //more quickly
+            Console.WriteLine();
+            Console.Write("Breathe in a little bit faster...");
+            for (int i = 4; i > 0; i--)
+            {
+                Console.Write(i);
+                Thread.Sleep(1000);
+                Console.Write("\b \b");
+            };
+
+            Console.WriteLine();
+            Console.Write("Now breathe out a little bit faster...");
+
+            for (int i = 4; i > 0; i--)
             {
                 Console.Write(i);
                 Thread.Sleep(1000);

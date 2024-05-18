@@ -29,7 +29,8 @@ class Program
             Console.WriteLine("1. Start breathing activity");
             Console.WriteLine("2. Start reflection activity");
             Console.WriteLine("3. Start listing activity");
-            Console.WriteLine("4. Exit");
+            Console.WriteLine("4. Start Reading Activity");
+            Console.WriteLine("5. Exit");
 
             while (true)
             {
@@ -76,12 +77,20 @@ class Program
                     listiningActivity1.Run();
 
                     break;
+
+                case 4:
+
+                    ReadingActivity readingActivity1 = new ReadingActivity("Reading Activity", "");
+
+                    readingActivity1.Run();
+
+                    break;
             }
 
 
 
 
-        }while (menuSelected !=4);
+        }while (menuSelected !=5);
 
     }
 }
