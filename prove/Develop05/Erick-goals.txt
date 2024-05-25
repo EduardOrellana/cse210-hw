@@ -1,0 +1,5 @@
+ERick
+10
+SimpleGoal:Cook,learning for cooking,10,True
+EternalGoal:REad the Bible,reading the bible,50
+ChecklistGoal:Visit the temple,visiting the temple,100,500,3,0

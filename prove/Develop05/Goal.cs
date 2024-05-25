@@ -1,6 +1,7 @@
 public abstract class Goal
 {
 
+    //Attributes
     protected string _shortName;
     protected string _description;
     protected string _points;
@@ -12,7 +13,12 @@ public abstract class Goal
         _points = points;
     }
 
-
+    public int GetPoints()
+    {
+        return int.Parse(_points);
+    }
+    
+    //Methods
     public abstract void RecordEvent();
 
     public abstract bool IsComplete();

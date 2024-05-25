@@ -1,12 +1,21 @@
 public class SimpleGoal : Goal
 {
-    private bool _isComplete = false;
+    //Attributes
+    private bool _isComplete;
 
-    public SimpleGoal(string name, string description, string points) : base(name, description, points){} //By the base constructor we are going to obtain the
+    public SimpleGoal(string name, string description, string points, bool status) : base(name, description, points)
+    {
+
+        _isComplete = status;
+
+    } //By the base constructor we are going to obtain the
     //names, descriptions and points.
 
+
+    //Methods
     public override void RecordEvent()
     {
+        Console.WriteLine($"\nCongratulations! You have earned {_points} points\n");
         _isComplete = true;
     }
 
@@ -18,10 +27,8 @@ public class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return $"Simple Goal: {_shortName},{_description},{_points}";
+        string text = $"SimpleGoal:{_shortName},{_description},{_points},{_isComplete}";
+        return text;
     }
-
-
-
 
 }
