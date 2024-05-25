@@ -37,8 +37,8 @@ public class ChecklistGoal : Goal
         }
         else
         {
-            Console.WriteLine($"\nCongratulations! You have earned {_points} points\n");
             _points = $"{int.Parse(_points) + _bonus}";
+            Console.WriteLine($"\nCongratulations! You have earned {_points} points\n");
         }
     }
 
